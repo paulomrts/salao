@@ -1,0 +1,86 @@
+<div class="uk-flex-center" uk-grid>
+    <div class="uk-width-1-2@m">
+        <!---->
+        <p class="uk-text-center uk-margin-large-top uk-margin-medium-bottom">
+            <span class="uk-icon" uk-icon="icon: image; ratio:2"></span>
+            <!--=Aqui vou Inserir posteriomente o icone do salao-->
+        </p>
+
+        <app-loading *ngIf="busy"></app-loading>
+        <form [formGroup]="form" *ngIf="!busy">
+            <!--Definições do Card de Login-->
+            <div class="uk-card uk-card-primary uk-card-body uk-box-shadow-small">
+
+                <h3 class="uk-card-title">Formulário de Cadastro</h3>
+
+                <div class="uk-margin">
+                    <input class="uk-input uk-form-large" type="text" placeholder="Nome" [ngClass]="{'uk-form-danger': (!form.controls.name.valid &&
+                form.controls.name.pristine)}" minlength="2">
+                    <!--Tamanho minimo obrigatorio 3 letras-->
+                </div>
+                <div class="uk-margin uk-width-1-3@m">
+                    <input class="uk-input uk-form-large" type="text" mask="000.000.000-00" [ngClass]="{'uk-form-danger': (!form.controls.document.valid 
+                    && !form.controls.document.pristine)}" placeholder="CPF">
+                </div>
+
+                <div class="uk-margin uk-width-1-3@m">
+                    <input class="uk-input uk-form-large" type="text" placeholder="RG">
+                </div>
+
+                <div class="uk-margin uk-width-1-2@m">
+                    <input class="uk-input uk-form-large" type="email" placeholder=" E-mail" [ngClass]="{'uk-form-danger': (!form.controls.email.valid 
+                    && !form.controls.email.pristine)}">
+                </div>
+
+                <div class="uk-margin uk-width-1-3@m ">
+                    <!--Mascara de formatação de CEP aplicada-->
+                    <input class="uk-input uk-form-large " type="text " mask="000000-00 " placeholder="CEP ">
+                </div>
+
+                <div class="uk-margin uk-width-1-3@m ">
+                    <input class="uk-input uk-form-large " type="text " minlength="3 " placeholder="Cidade ">
+                </div>
+
+                <div class="uk-margin uk-width-1-5@m ">
+                    <input class="uk-input uk-form-large " type="text " text-uppercase maxlength="2 " placeholder="Estado ">
+                </div>
+
+                <div class="uk-margin uk-width-1-2@m ">
+                    <input class="uk-input uk-form-large " type="text " minlength="3 " placeholder="Rua ">
+                </div>
+
+                <div class="uk-margin uk-width-1-2@m ">
+                    <input class="uk-input uk-form-large " type="text " minlength="3 " placeholder="Bairro ">
+                </div>
+
+                <div class="uk-margin uk-width-1-4@m ">
+                    <input class="uk-input uk-form-large " type="text " minlength="3 " maxlength="5 " placeholder="Numero ">
+                </div>
+
+                <!--Mascara de formatação de Telefone-BR aplicada-->
+                <div class="uk-margin uk-width-1-4@m ">
+                    <input class="uk-input uk-form-large " type="text " mask="(00) 0000-0000 " placeholder="Telefone ">
+                </div>
+
+                <div class="uk-margin uk-width-1-4@m ">
+                    <input class="uk-input uk-form-large " type="text " mask="(00) 00000-0000 " placeholder="Celular ">
+                </div>
+
+
+                <div class="uk-margin uk-width-1-4@m ">
+                    <input class="uk-input uk-form-large " type="password " formControlName="password " placeholder="Senha" [ngClass]="{'uk-form-danger': (!form.controls.password.valid && !form.controls.password.pristine)}">
+                </div>
+
+                <div class="uk-margin uk-text-right ">
+                    <button class="uk-button uk-button-default " [disabled]="form.invalid" (click)="submit()">Finalizar Cadastro</button>
+                </div>
+            </div>
+        </form>
+
+        <p class="uk-text-center " *ngIf="!busy ">
+            <a [routerLink]="[ '/login'] " class="uk-button uk-button-link ">Cancelar Cadastro </a>
+            <!--Retorna a rota para login-->
+        </p>
+
+    </div>
+</div>

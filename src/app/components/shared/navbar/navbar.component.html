@@ -1,0 +1,42 @@
+<!-- Configurações do top da Página-->
+
+<div class="uk-background-primary uk-light"> <!-- Definição da cor de top da página-->
+    <div class="uk-container">
+        <!--Componentes do Uikit -->
+        <nav class="uk-navbar-container uk-navbar-transparent  uk-margin" uk-navbar>
+
+            <!--Menu da esquerda-->
+            <div class="uk-navbar-left">
+                <a class="uk-navbar-item uk-logo" href="#"> <!--<a> tag defines a hyperlink, which is used to link from one page to another.-->
+                    <span class="uk-icon uk-margin-small-right" uk-icon="icon: image; ratio:2"></span> <!-- Imagem provisoria, depois vou inserir um logo-->
+                </a>
+                <ul class="uk-navbar-nav">
+                    <li><a [routerLink]="['/clients-info']" routerLinkActive="uk-text-bold"> Área do Cliente </a></li>
+                    <li><a [routerLink]="['/func-adm']" routerLinkActive="active-link"> Área do Funcionario </a></li>
+                    <li><a [routerLink]="['/servicos']" routerLinkActive="active-link"> Serviços </a></li>
+                    <li><a [routerLink]="['/gallery']" routerLinkActive="uk-text-bold"> Produtos </a></li>
+                    <li><a [routerLink]="['/pagamentos']" routerLinkActive="active-link"> Pagamento </a></li>
+                </ul>
+            </div>
+
+            <!--Menu da direita-->
+            <div class="uk-navbar-right"> 
+                <ul class="navbar-nav">  
+                    <li>
+                        <a [routerLink]="['/cart']" routerLinkActive="uk-text-bold">   
+                            <span class="uk-icon uk-margin-small-left" uk-icon="icon: cart;ratio:1.2"></span>
+                            <span class="uk-badge">0</span>
+                        </a>
+                        <a href="/account">
+                            <span class="uk-icon uk-margin-medium-left" uk-icon="icon: user;ratio:1.2"></span>
+                            {{user?.name}}
+                        </a>
+                        <a (click)="logout()">
+                            <span class="uk-icon uk-margin-medium-left" uk-icon="icon: sign-out; ratio:1.5"></span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </div>
+</div>
